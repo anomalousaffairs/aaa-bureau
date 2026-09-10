@@ -1,0 +1,317 @@
+body {
+  background-color: #c0c0c0;
+  background-image: repeating-linear-gradient(45deg, #c0c0c0 0px, #c0c0c0 2px, #b8b8b8 2px, #b8b8b8 4px);
+  font-family: "Times New Roman", "SimSun", serif;
+  margin: 0;
+  padding: 0;
+  color: #000080;
+}
+
+/* 顶部横幅 */
+.banner {
+  background: linear-gradient(#000080, #0000cd);
+  color: #ffff00;
+  text-align: center;
+  padding: 12px 0 6px 0;
+  border-bottom: 4px double #ffff00;
+}
+.banner h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000;
+}
+.banner .subtitle {
+  color: #ffffff;
+  font-size: 12px;
+  font-style: italic;
+}
+.marquee-bar {
+  background: #000;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  padding: 3px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid #ffff00;
+}
+.marquee-bar span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 18s linear infinite;
+}
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* 主体布局 */
+.container {
+  max-width: 780px;
+  margin: 10px auto;
+  background: #f0f0e8;
+  border: 3px ridge #808080;
+  padding: 0;
+}
+.layout {
+  display: flex;
+}
+.sidebar {
+  width: 160px;
+  background: #d4d0c8;
+  border-right: 3px ridge #808080;
+  padding: 10px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.sidebar h3 {
+  background: #000080;
+  color: #ffff00;
+  font-size: 12px;
+  padding: 3px 5px;
+  margin: 0 0 6px 0;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+.sidebar li {
+  margin-bottom: 5px;
+}
+.sidebar a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+.sidebar a:visited {
+  color: #551a8b;
+}
+.sidebar a.current {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.content {
+  flex: 1;
+  padding: 15px 18px;
+  min-width: 0;
+}
+.content h2 {
+  font-size: 18px;
+  border-bottom: 2px solid #000080;
+  padding-bottom: 3px;
+}
+.content p {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.badge-seal {
+  float: right;
+  width: 90px;
+  height: 90px;
+  border: 3px double #000080;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e4d8;
+  margin: 0 0 10px 15px;
+  color: #000080;
+  font-weight: bold;
+}
+
+.search-box {
+  background: #000;
+  border: 2px inset #808080;
+  padding: 10px;
+  margin-top: 15px;
+  font-family: "Courier New", monospace;
+}
+.search-box label {
+  color: #00ff00;
+  font-size: 12px;
+}
+.search-box input[type="text"] {
+  width: 65%;
+  background: #001a00;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  font-family: "Courier New", monospace;
+  padding: 4px;
+}
+.search-box input[type="submit"] {
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  padding: 4px 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.search-result {
+  color: #ff0;
+  font-size: 12px;
+  margin-top: 8px;
+  min-height: 14px;
+}
+.search-result a {
+  color: #7fffd4;
+  text-decoration: underline;
+}
+.search-result-item {
+  margin-bottom: 4px;
+}
+
+.under-construction {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 12px;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: #333;
+  padding: 10px;
+  border-top: 3px ridge #808080;
+  background: #d4d0c8;
+}
+footer .pagecount {
+  font-family: "Courier New", monospace;
+}
+
+a.blink {
+  animation: blinker 1s step-start infinite;
+  color: #ff0000;
+  font-weight: bold;
+}
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+/* ===== 案件档案室 ===== */
+.year-nav {
+  margin: 10px 0 18px 0;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+.year-nav a {
+  display: inline-block;
+  margin: 0 6px 6px 0;
+  padding: 3px 9px;
+  background: #d4d0c8;
+  border: 1px solid #808080;
+  color: #000080;
+  text-decoration: none;
+}
+.year-nav a:hover {
+  background: #000080;
+  color: #fff;
+}
+
+.case-year-group {
+  margin-bottom: 18px;
+}
+.case-year-group h3 {
+  background: #000080;
+  color: #ffff00;
+  font-size: 13px;
+  padding: 4px 8px;
+  margin: 0 0 6px 0;
+}
+.case-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #808080;
+}
+.case-list li {
+  padding: 7px 9px;
+  border-bottom: 1px solid #ccc;
+  font-size: 13px;
+  background: #fff;
+}
+.case-list li:last-child {
+  border-bottom: none;
+}
+.case-list li:target {
+  background: #fffbb0;
+}
+.case-code {
+  font-family: "Courier New", monospace;
+  color: #555;
+  margin-right: 8px;
+  font-size: 12px;
+}
+.case-status {
+  float: right;
+  font-size: 10px;
+  padding: 1px 7px;
+  border: 1px solid #808080;
+}
+.status-已结案 { background: #e0e0e0; }
+.status-未结案 { background: #ffe0e0; color: #800; }
+.status-机密   { background: #000; color: #0f0; }
+.status-进行中 { background: #fff3c0; color: #805500; }
+
+/* ===== 人事名录 ===== */
+.personnel-section-title {
+  background: #000080;
+  color: #ffff00;
+  font-size: 13px;
+  padding: 4px 8px;
+  margin: 18px 0 10px 0;
+}
+.personnel-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.personnel-card {
+  width: 118px;
+  border: 1px solid #808080;
+  background: #fff;
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+}
+.personnel-card:target {
+  background: #fffbb0;
+}
+.avatar {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 6px auto;
+  background: #d4d0c8;
+  border: 2px solid #000080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #000080;
+  font-weight: bold;
+}
+.personnel-name {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.personnel-position {
+  color: #444;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+.personnel-status {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 6px;
+  border: 1px solid #808080;
+}
+.status-在职   { background: #e0ffe0; color: #060; }
+.status-已离职 { background: #eee;   color: #555; }
+.status-失踪   { background: #000;   color: #f00; }

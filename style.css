@@ -195,6 +195,104 @@ a.blink {
   50% { opacity: 0; }
 }
 
+/* ===== 公众留言板 ===== */
+.guestbook {
+  margin-top: 18px;
+  border: 2px ridge #808080;
+  background: #d4d0c8;
+  padding: 0;
+}
+
+.guestbook h3 {
+  background: #000080;
+  color: #ffff00;
+  font-size: 13px;
+  padding: 4px 8px;
+  margin: 0;
+}
+
+.guestbook-note {
+  margin: 0;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #000080;
+}
+
+.guestbook form {
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid #808080;
+}
+
+.form-row {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.form-row label {
+  display: inline-block;
+  width: 45px;
+  vertical-align: top;
+  padding-top: 4px;
+  font-weight: bold;
+  color: #000080;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row textarea {
+  width: calc(100% - 55px);
+  box-sizing: border-box;
+  background: #fff;
+  color: #000;
+  border: 2px inset #808080;
+  padding: 4px;
+  font-family: "Times New Roman", "SimSun", serif;
+  font-size: 12px;
+}
+
+.form-row textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: 1px dotted #000080;
+  background: #fff;
+}
+
+.form-submit {
+  padding-left: 45px;
+  margin-top: 5px;
+}
+
+.form-submit input {
+  background: #c0c0c0;
+  color: #000;
+  border: 2px outset #fff;
+  padding: 3px 12px;
+  font-family: "Times New Roman", "SimSun", serif;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-submit input:active {
+  border-style: inset;
+}
+
+.guestbook-result {
+  margin: 0 10px 10px 10px;
+  padding: 5px;
+  background: #000;
+  color: #00ff00;
+  border: 1px inset #808080;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+}
+
 /* ===== 案件档案室 ===== */
 .year-nav {
   margin: 10px 0 18px 0;

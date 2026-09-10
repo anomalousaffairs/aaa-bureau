@@ -67,24 +67,17 @@
       return name.replace(/·/g, "").slice(-1);
     }
 
-    function renderGroup(title, statusFilter) {
-      const people = PERSONNEL.filter(p => statusFilter.includes(p.status));
-      if (people.length === 0) return "";
-      const cards = people.map(p =>
-        '<div class="personnel-card" id="' + p.id + '">' +
-          '<div class="avatar">' + initials(p.name) + '</div>' +
-          '<div class="personnel-name">' + p.name + '</div>' +
-          '<div class="personnel-position">' + p.position + '</div>' +
-          '<span class="personnel-status status-' + p.status + '">' + p.status + '</span>' +
-        '</div>'
-      ).join("");
-      return '<div class="personnel-section-title">' + title + '</div><div class="personnel-grid">' + cards + '</div>';
-    }
+    const cards = PERSONNEL.map(p =>
+      '<div class="personnel-card" id="' + p.id + '">' +
+        '<div class="avatar">' + initials(p.name) + '</div>' +
+        '<div class="personnel-name">' + p.name + '</div>' +
+        '<div class="personnel-position">' + p.position + '</div>' +
+        '<span class="personnel-status status-' + p.status + '">' + p.status + '</span>' +
+      '</div>'
+    ).join("");
 
     const container = document.getElementById("personnel-container");
-    container.innerHTML =
-      renderGroup("在职人员", ["在职"]) +
-      renderGroup("离职 / 失踪人员", ["已离职", "失踪"]);
+    container.innerHTML = '<div class="personnel-grid">' + cards + '</div>';
   })();
 </script>
 </body>

@@ -63,12 +63,92 @@
 
     </div>
 
+    <!-- 留言板 -->
+        <div class="guestbook">
+          <h3>&gt; 公众留言板</h3>
+
+          <p class="guestbook-note">
+            如您有任何意见、建议或与异常活动相关的信息，可通过以下表单与本局联系。
+            <br>
+            请确保所提交的信息真实、准确。
+          </p>
+
+          <form id="guestbook-form">
+
+            <div class="form-row">
+              <label for="guest-name">姓名：</label>
+              <input
+                type="text"
+                id="guest-name"
+                name="name"
+                maxlength="50"
+                required
+                placeholder="请输入您的姓名"
+              >
+            </div>
+
+            <div class="form-row">
+              <label for="guest-email">邮箱：</label>
+              <input
+                type="email"
+                id="guest-email"
+                name="email"
+                maxlength="100"
+                required
+                placeholder="请输入您的电子邮箱"
+              >
+            </div>
+
+            <div class="form-row">
+              <label for="guest-message">内容：</label>
+              <textarea
+                id="guest-message"
+                name="message"
+                rows="7"
+                maxlength="1000"
+                required
+                placeholder="请输入留言内容..."
+              ></textarea>
+            </div>
+
+            <div class="form-submit">
+              <input type="submit" value="提交留言">
+              <input type="reset" value="清除">
+            </div>
+
+          </form>
+
+          <div id="guestbook-result" class="guestbook-result"></div>
+        </div>
+
+      </div>
+
+    </div>
+
     <footer>
       © 1997 联邦异常事务管理局 版权所有 | 本站最佳浏览效果：800x600分辨率，IE4.0以上版本<br>
-      <span class="pagecount">您是第 <span style="color:#0f0;background:#000;padding:1px 4px;">003417</span> 位访问者</span>
+      <span class="pagecount">
+        您是第
+        <span style="color:#0f0;background:#000;padding:1px 4px;">003417</span>
+        位访问者
+      </span>
     </footer>
   </div>
 
 <script src="data.js"></script>
+
+<script>
+  document.getElementById("guestbook-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const result = document.getElementById("guestbook-result");
+
+    result.innerHTML =
+      "留言已提交。感谢您对联邦异常事务管理局工作的支持。";
+
+    this.reset();
+  });
+</script>
+
 </body>
 </html>

@@ -201,7 +201,6 @@ a.blink {
   margin-top: 15px;
   border: 1px solid #808080;
   background: #d4d0c8;
-  font-size: 12px;
 }
 
 .guestbook-title {
@@ -209,35 +208,32 @@ a.blink {
   color: #ffff00;
   font-size: 12px;
   font-weight: bold;
-  padding: 3px 6px;
-  margin: 0;
+  padding: 3px 5px;
 }
 
 .guestbook-note {
-  margin: 0;
-  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 1.6;
   color: #000080;
-  font-size: 11px;
-  line-height: 1.5;
+  margin: 8px;
 }
 
 .guestbook form {
-  margin: 0;
   padding: 8px;
-  border-top: 1px solid #aaa;
+  border-top: 1px solid #808080;
 }
 
 .guestbook-row {
   display: flex;
   align-items: flex-start;
   margin-bottom: 6px;
+  font-size: 12px;
 }
 
 .guestbook-row label {
   width: 42px;
   padding-top: 3px;
   flex-shrink: 0;
-  font-size: 11px;
   color: #000080;
 }
 

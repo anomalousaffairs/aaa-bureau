@@ -312,27 +312,6 @@ a.blink {
   padding: 1px 6px;
   border: 1px solid #808080;
 }
-.status-在职 {
-  background-color: #e0ffe0;
-  color: #006600;
-}
-
-.status-离职 {
-  background-color: #eeeeee;
-  color: #555555;
-}
-
-.status-遗失 {
-  background-color: #000000;
-  color: #ff0000;
-}
-
-.status-退役 {
-  background-color: #f3efe5;
-  color: #776655;
-}
-
-.status-不明 {
-  background-color: #fff4cc;
-  color: #865e00;
-}
+.status-在职   { background: #e0ffe0; color: #060; }
+.status-离职 { background: #eee;   color: #555; }
+.status-遗失   { background: #000;   color: #f00; }

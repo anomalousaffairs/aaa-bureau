@@ -48,5 +48,25 @@
     本页面内容与任何真实商品无关，仅供娱乐展示 | © 版权所有
   </footer>
 
+  <!-- ===== 客服聊天窗（最小化图标） ===== -->
+  <div class="chat-bubble-min" id="chat-bubble-min" onclick="restoreChat()">💬</div>
+
+  <!-- ===== 客服聊天窗（展开面板） ===== -->
+  <div class="chat-widget" id="chat-widget">
+    <div class="chat-header">
+      <span>在线客服 · 小蜜</span>
+      <span class="chat-min-btn" onclick="minimizeChat()" title="最小化">─</span>
+    </div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="chat-options" id="chat-options" style="display:none;"></div>
+    <div class="chat-verify-row" id="chat-verify-row" style="display:none;">
+      <input type="text" id="chat-verify-input" placeholder="请输入凭证号">
+      <button onclick="submitVerifyCode()">提交</button>
+    </div>
+  </div>
+
+<script src="codes.js"></script>
+<script src="chatbot.js"></script>
+
 </body>
 </html>

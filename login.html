@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>内部登录 - 联邦异常事务管理局</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="banner">
+    <div class="auth-status" id="auth-status"></div>
+    <h1>★ Agency of Anomalous Affairs 联邦异常事务管理局 ★</h1>
+    <div class="subtitle">为国家安全，探索无法解释之事</div>
+  </div>
+
+  <div class="marquee-bar">
+    <span>本网站为局内公开信息发布平台 &nbsp;|&nbsp; 最近更新：1997年3月 &nbsp;|&nbsp; 举报可疑活动请拨打内部专线 &nbsp;|&nbsp; 未经授权禁止转载本站内容 &nbsp;|&nbsp;</span>
+  </div>
+
+  <div class="container">
+    <div class="layout">
+
+      <div class="sidebar">
+        <h3>站内导航</h3>
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="cases.html">案件档案室</a></li>
+          <li><a href="personnel.html">人事名录</a></li>
+          <li><a href="#">公众问答</a></li>
+          <li><a href="#">联系我们</a></li>
+        </ul>
+        <h3>友情链接</h3>
+        <ul>
+          <li><a href="#">国家气象局</a></li>
+          <li><a href="#">联邦档案管理处</a></li>
+          <li><a href="login.html" class="blink">内部登录 ▶</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <h2>内部人员登录</h2>
+        <p>
+          本页面仅供本局在职及授权人员使用。未经授权尝试登录将被记录并上报。
+        </p>
+
+        <div class="login-box">
+          <div class="login-box-title">&gt; 身份验证</div>
+          <div class="login-box-note">请输入您的内部账号与密码</div>
+          <form id="login-form">
+            <div class="login-row">
+              <label for="login-username">用户名</label>
+              <input type="text" id="login-username" autocomplete="off" required>
+            </div>
+            <div class="login-row">
+              <label for="login-password">密码</label>
+              <input type="password" id="login-password" autocomplete="off" required>
+            </div>
+            <div class="login-submit">
+              <input type="submit" value="登录">
+            </div>
+          </form>
+          <div class="login-error" id="login-error">用户名或密码错误，请重试</div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      © 1997 联邦异常事务管理局 版权所有 | 本站最佳浏览效果：800x600分辨率，IE4.0以上版本<br>
+      <span class="pagecount">您是第 <span style="color:#0f0;background:#000;padding:1px 4px;">003417</span> 位访问者</span>
+    </footer>
+  </div>
+
+<script src="auth.js"></script>
+<script>
+  document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value;
+    const errorBox = document.getElementById("login-error");
+
+    if (login(username, password)) {
+      const params = new URLSearchParams(window.location.search);
+      const redirect = params.get("redirect");
+      window.location.href = redirect ? redirect : "index.html";
+    } else {
+      errorBox.style.display = "block";
+    }
+  });
+</script>
+</body>
+</html>

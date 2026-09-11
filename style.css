@@ -14,6 +14,7 @@ body {
   text-align: center;
   padding: 12px 0 6px 0;
   border-bottom: 4px double #ffff00;
+  position: relative;
 }
 .banner h1 {
   margin: 0;
@@ -409,3 +410,174 @@ a.blink {
 .status-退役 { background: #f3efe5; color: #765; }
 .status-遗失 { background: #000;   color: #f00; }
 .status-不明 { background: #fff4cc; color: #865e00; }
+
+/* ===== 登录状态条（横幅右上角） ===== */
+.auth-status {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #ffffff;
+}
+.auth-status a {
+  color: #ffff00;
+  text-decoration: underline;
+}
+.auth-status .auth-username {
+  color: #7fffd4;
+  font-weight: bold;
+}
+
+/* ===== 登录界面 ===== */
+.login-box {
+  max-width: 340px;
+  margin: 30px auto;
+  border: 1px solid #808080;
+  background: #ffffff;
+}
+.login-box-title {
+  background: #000080;
+  color: #ffff00;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 6px;
+}
+.login-box-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #000080;
+  margin: 10px;
+}
+.login-box form {
+  padding: 10px;
+  border-top: 1px solid #808080;
+}
+.login-row {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.login-row label {
+  display: block;
+  margin-bottom: 3px;
+  color: #000080;
+}
+.login-row input[type="text"],
+.login-row input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 2px inset #808080;
+  background: #fff;
+  color: #000;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+.login-submit {
+  text-align: center;
+  margin-top: 12px;
+}
+.login-submit input {
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  padding: 4px 16px;
+  font-family: "Times New Roman", "SimSun", serif;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+}
+.login-submit input:active {
+  border-style: inset;
+}
+.login-error {
+  margin: 0 10px 10px 10px;
+  padding: 5px 7px;
+  background: #000;
+  color: #ff5555;
+  border: 1px inset #808080;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  display: none;
+}
+
+/* ===== 机密案件锁定提示 ===== */
+.case-locked {
+  color: #666;
+  font-style: italic;
+}
+.case-locked a {
+  color: #000080;
+  margin-left: 6px;
+  font-style: normal;
+  font-size: 11px;
+}
+
+/* ===== 人事名录：姓名链接 ===== */
+.personnel-name a {
+  color: #000080;
+  text-decoration: none;
+}
+.personnel-name a:hover {
+  text-decoration: underline;
+}
+
+/* ===== 员工档案页面（staff.html） ===== */
+.staff-profile {
+  max-width: 420px;
+  margin: 10px auto;
+  border: 1px solid #808080;
+  background: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+.staff-photo {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 14px auto;
+  background: #d4d0c8;
+  border: 3px double #000080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #000080;
+  font-weight: bold;
+}
+.staff-name {
+  font-size: 19px;
+  font-weight: bold;
+  color: #000080;
+  margin-bottom: 4px;
+}
+.staff-position {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 12px;
+}
+.staff-info-table {
+  text-align: left;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.staff-info-table span.label {
+  display: inline-block;
+  width: 78px;
+  color: #000080;
+  font-weight: bold;
+}
+.staff-locked {
+  max-width: 420px;
+  margin: 10px auto;
+  border: 1px solid #808080;
+  background: #f0f0e8;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 13px;
+  color: #333;
+}
+.staff-locked a {
+  color: #000080;
+  font-weight: bold;
+}

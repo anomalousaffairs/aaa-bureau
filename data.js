@@ -51,9 +51,10 @@ function searchAll(rawQuery) {
   CASES.forEach(c => {
     const haystack = normalize(c.title + " " + c.code + " " + c.year);
     if (haystack.includes(q)) {
+      const locked = c.status === "机密" && !(typeof isLoggedIn === "function" && isLoggedIn());
       results.push({
         type: "案件",
-        label: c.title,
+        label: locked ? "［机密］需登录查看" : c.title,
         meta: c.code + " · " + c.year + "年 · " + c.status,
         url: "cases.html#" + c.id
       });

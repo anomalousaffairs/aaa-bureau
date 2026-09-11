@@ -15,12 +15,9 @@ const CASES = [
   { id: "c-1976-11-03", year: 1976, code: "A761103V9", title: "怀俄明州废弃观测站事件", status: "机密" },
 ];
 
-// 如需给某人添加头像照片，在对应条目里加一个 photo 字段，
-// 值填图片相对路径（例如放在 photos/ 文件夹下就写 "photos/文件名.jpg"）。
-// 没有 photo 字段的人会继续显示原来的字母头像，不影响其他人。
 // 示例：{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photos/pf-4187.jpg" }
 const PERSONNEL = [
-{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职" },
+{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photos/pf-4187.jpg" },
 { id: "PF-0632", name: "玛格丽特·陈", position: "副局长", status: "在职" },
 { id: "PF-7714", name: "凯瑟琳·格雷", position: "总法律顾问", status: "不明" },
 { id: "PF-2958", name: "霍华尔·克雷吉", position: "监督特别探员", status: "在职" },

@@ -1,7 +1,7 @@
 const VALID_CODES = [
   "AX-7734-QM",
   "AX-2951-LK",
-  "guest"
+  "GUEST"
 ];
 
 function isValidCode(code) {

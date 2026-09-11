@@ -1,6 +1,3 @@
-// ===== 站内数据（案件档案 & 人事名录）=====
-// 后续扩展剧情线索时，直接在这两个数组里增删条目即可
-
 const CASES = [
   { id: "c-1965-08-03", year: 1965, code: "A650803O2", title: "俄亥俄州谷仓异常燃烧事件", status: "已结案" },
   { id: "c-1971-01-19", year: 1971, code: "A710119F4", title: "雾松镇集体失忆事件", status: "已结案" },
@@ -37,7 +34,7 @@ const PERSONNEL = [
 { id: "PF-0648", name: "艾琳·沃克", position: "异常物证管理员", status: "退役" }
 ];
 
-// ===== 模糊搜索（跨案件档案与人事名录）=====
+// ===== 模糊搜索 =====
 function normalize(s) {
   return String(s).toLowerCase().trim();
 }

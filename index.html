@@ -59,61 +59,61 @@
           <input type="submit" value="检索" onclick="doSearch()">
           <div class="search-result" id="result"></div>
         </div>
+
+        <div class="guestbook">
+          <div class="guestbook-title">&gt; 公众留言板</div>
+
+          <p class="guestbook-note">
+            如您掌握与本局职责相关的信息，请填写以下表格。<br>
+            本局将根据情况进行调查。
+          </p>
+
+          <form id="guestbook-form">
+
+            <div class="guestbook-row">
+              <label for="guest-name">姓名：</label>
+              <input
+                type="text"
+                id="guest-name"
+                name="name"
+                maxlength="50"
+                required
+              >
+            </div>
+
+            <div class="guestbook-row">
+              <label for="guest-email">邮箱：</label>
+              <input
+                type="email"
+                id="guest-email"
+                name="email"
+                maxlength="100"
+                required
+              >
+            </div>
+
+            <div class="guestbook-row">
+              <label for="guest-message">内容：</label>
+              <textarea
+                id="guest-message"
+                name="message"
+                maxlength="1000"
+                required
+              ></textarea>
+            </div>
+
+            <div class="guestbook-submit">
+              <input type="submit" value="提交">
+              <input type="reset" value="清除">
+            </div>
+
+          </form>
+
+          <div id="guestbook-result" class="guestbook-result"></div>
+        </div>
       </div>
 
     </div>
-
-<div class="guestbook">
-  <div class="guestbook-title">&gt; 公众留言板</div>
-
-  <p class="guestbook-note">
-    如您掌握与本局职责相关的信息，请填写以下表格。<br>
-    本局将根据情况进行调查。
-  </p>
-
-  <form id="guestbook-form">
-
-    <div class="guestbook-row">
-      <label for="guest-name">姓名：</label>
-      <input
-        type="text"
-        id="guest-name"
-        name="name"
-        maxlength="50"
-        required
-      >
-    </div>
-
-    <div class="guestbook-row">
-      <label for="guest-email">邮箱：</label>
-      <input
-        type="email"
-        id="guest-email"
-        name="email"
-        maxlength="100"
-        required
-      >
-    </div>
-
-    <div class="guestbook-row">
-      <label for="guest-message">内容：</label>
-      <textarea
-        id="guest-message"
-        name="message"
-        maxlength="1000"
-        required
-      ></textarea>
-    </div>
-
-    <div class="guestbook-submit">
-      <input type="submit" value="提交">
-      <input type="reset" value="清除">
-    </div>
-
-  </form>
-
-  <div id="guestbook-result" class="guestbook-result"></div>
-</div>
 
     <footer>
       © 1997 联邦异常事务管理局 版权所有 | 本站最佳浏览效果：800x600分辨率，IE4.0以上版本<br>

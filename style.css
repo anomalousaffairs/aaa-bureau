@@ -195,12 +195,14 @@ a.blink {
   50% { opacity: 0; }
 }
 
-/* ===== 公众留言板 ===== */
+/* ===== 公众留言板 =====
+   已移入 .content 列内部，因此背景改为和内容区一致的白底+灰边框，
+   不再使用 sidebar 专用的灰色背景，视觉上与搜索框、案件列表等区块统一 */
 
 .guestbook {
   margin-top: 15px;
   border: 1px solid #808080;
-  background: #d4d0c8;
+  background: #ffffff;
 }
 
 .guestbook-title {
@@ -212,7 +214,7 @@ a.blink {
 }
 
 .guestbook-note {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   color: #000080;
   margin: 8px;
@@ -349,7 +351,8 @@ a.blink {
 .status-机密   { background: #000; color: #0f0; }
 .status-进行中 { background: #fff3c0; color: #805500; }
 
-/* ===== 人事名录 ===== */
+/* ===== 人事名录 =====
+   状态类名对应 data.js 里实际使用的状态字符串：在职 / 离职 / 退役 / 遗失 / 不明 */
 .personnel-section-title {
   background: #000080;
   color: #ffff00;
@@ -403,6 +406,6 @@ a.blink {
 }
 .status-在职 { background: #e0ffe0; color: #060; }
 .status-离职 { background: #eee;   color: #555; }
-.status-遗失 { background: #000;   color: #f00; }
 .status-退役 { background: #f3efe5; color: #765; }
+.status-遗失 { background: #000;   color: #f00; }
 .status-不明 { background: #fff4cc; color: #865e00; }

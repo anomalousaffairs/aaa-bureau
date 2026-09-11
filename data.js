@@ -18,13 +18,13 @@ const CASES = [
 // 示例：{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photos/pf-4187.jpg" }
 const PERSONNEL = [
 { id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photos/PF-4187.jpeg" },
-{ id: "PF-0632", name: "玛格丽特·陈", position: "副局长", status: "在职" },
-{ id: "PF-7714", name: "凯瑟琳·格雷", position: "总法律顾问", status: "不明" },
-{ id: "PF-2958", name: "霍华尔·克雷吉", position: "监督特别探员", status: "在职" },
-{ id: "PF-6403", name: "科妮莉亚·安", position: "调查部助理局长", status: "在职" },
+{ id: "PF-0632", name: "玛格丽特·陈", position: "副局长", status: "在职", photo: "photos/PF-0632.jpeg" },
+{ id: "PF-7714", name: "凯瑟琳·格雷", position: "总法律顾问", status: "不明", photo: "photos/PF-6403.jpeg" },
+{ id: "PF-2958", name: "霍华尔·克雷吉", position: "监督特别探员", status: "在职", photo: "photos/PF-2958.jpeg" },
+{ id: "PF-6403", name: "科妮莉亚·安", position: "调查部助理局长", status: "在职", photo: "photos/PF-8471.jpeg" },
 { id: "PF-1826", name: "塔伯·戈德史密斯", position: "情报部助理局长", status: "退役" },
 { id: "PF-5039", name: "艾萨克·阿德拉", position: "高级特工", status: "不明" },
-{ id: "PF-8471", name: "诺拉·邓肯", position: "高级特工", status: "遗失" },
+{ id: "PF-8471", name: "诺拉·邓肯", position: "高级特工", status: "遗失", photo: "photos/PF-0632.jpeg" },
 { id: "PF-3264", name: "柳藤祈", position: "高级特工", status: "不明" },
 { id: "PF-9157", name: "巴顿", position: "高级特工", status: "遗失" },
 { id: "PF-2741", name: "优拉·罗伯茨", position: "特工", status: "在职" },

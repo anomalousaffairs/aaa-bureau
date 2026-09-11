@@ -402,21 +402,21 @@ footer.ad-footer {
   right: 16px;
   width: 280px;
   max-height: 400px;
-  background: #fff;
-  border: 2px solid #a244ff;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  background: #fffef2;
+  border: 4px solid;
+  border-image: repeating-linear-gradient(45deg, #ff2fb0, #ff2fb0 6px, #ffd400 6px, #ffd400 12px) 4;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
   display: none;
   flex-direction: column;
   overflow: hidden;
   z-index: 600;
-  font-family: Arial, sans-serif;
+  font-family: "Comic Sans MS", "Chalkboard SE", cursive, sans-serif;
 }
 .chat-widget.open {
   display: flex;
 }
 .chat-header {
-  background: linear-gradient(90deg, #a244ff, #ff2fb0);
+  background: repeating-linear-gradient(90deg, #a244ff, #a244ff 10px, #ff2fb0 10px, #ff2fb0 20px);
   color: #fff;
   padding: 8px 10px;
   font-size: 13px;
@@ -424,19 +424,24 @@ footer.ad-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
 }
 .chat-header .chat-min-btn {
   cursor: pointer;
   font-size: 16px;
   line-height: 1;
-  padding: 0 4px;
+  padding: 0 6px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
 }
 .chat-body {
   flex: 1;
   padding: 10px;
   overflow-y: auto;
   font-size: 12px;
-  background: #f7f5fb;
+  background: #fffef2;
+  background-image: radial-gradient(circle, #ffe6f5 1px, transparent 1px);
+  background-size: 18px 18px;
   max-height: 260px;
 }
 .chat-msg {
@@ -445,7 +450,7 @@ footer.ad-footer {
 }
 .chat-msg.bot .bubble {
   background: #fff;
-  border: 1px solid #ddd;
+  border: 2px solid #35d635;
   color: #333;
 }
 .chat-msg.user {
@@ -453,67 +458,74 @@ footer.ad-footer {
 }
 .chat-msg.user .bubble {
   background: #a244ff;
+  border: 2px solid #6c1fc7;
   color: #fff;
 }
 .chat-msg .bubble {
   display: inline-block;
   padding: 6px 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   max-width: 200px;
   line-height: 1.5;
 }
 .chat-options {
   padding: 8px 10px;
-  border-top: 1px solid #eee;
+  border-top: 2px dashed #ffd400;
+  background: #fff8dd;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 .chat-options button {
-  background: #fff;
-  border: 1px solid #a244ff;
-  color: #a244ff;
-  padding: 5px 10px;
+  background: linear-gradient(#35d635, #1fa61f);
+  border: 2px solid #0d7a0d;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 12px;
   border-radius: 14px;
   font-size: 12px;
   cursor: pointer;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 .chat-options button:hover {
-  background: #a244ff;
-  color: #fff;
+  filter: brightness(1.08);
 }
 .chat-verify-row {
   padding: 8px 10px;
-  border-top: 1px solid #eee;
+  border-top: 2px dashed #ffd400;
+  background: #fff8dd;
   display: flex;
   gap: 6px;
 }
 .chat-verify-row input {
   flex: 1;
   padding: 6px;
-  border: 1px solid #ccc;
+  border: 2px solid #a244ff;
   border-radius: 6px;
   font-size: 12px;
   font-family: "Courier New", monospace;
 }
 .chat-verify-row button {
-  background: #a244ff;
+  background: linear-gradient(#35d635, #1fa61f);
+  border: 2px solid #0d7a0d;
   color: #fff;
-  border: none;
+  font-weight: bold;
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 12px;
   cursor: pointer;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .chat-bubble-min {
   position: fixed;
   bottom: 16px;
   right: 16px;
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #a244ff, #ff2fb0);
+  background: conic-gradient(#ff2fb0 0deg 90deg, #ffd400 90deg 180deg, #35d635 180deg 270deg, #00b4ff 270deg 360deg);
+  border: 3px solid #333;
   display: none;
   align-items: center;
   justify-content: center;
@@ -522,6 +534,11 @@ footer.ad-footer {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 600;
+  animation: chat-bubble-pulse 1.6s ease-in-out infinite;
+}
+@keyframes chat-bubble-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 .chat-bubble-min.show {
   display: flex;

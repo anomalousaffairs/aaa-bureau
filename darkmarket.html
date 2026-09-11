@@ -21,7 +21,7 @@
 <body>
 
   <div class="dm-topbar">
-    <div class="dm-brand">░ 反常物品交易频道 ░</div>
+    <div class="dm-brand">░ 物品交易频道 ░</div>
     <div class="dm-user-area">
       <span>用户：<span class="dm-username" id="dm-username">访客</span></span>
       <span class="dm-link" onclick="openOrders()">订购记录</span>
@@ -30,12 +30,12 @@
   </div>
 
   <div class="dm-marquee">
-    <span>本频道内容真实性未经核实，交易自行承担风险 &nbsp;&nbsp;|&nbsp;&nbsp; 所有交易记录仅保存于本机，注销后自动清除 &nbsp;&nbsp;|&nbsp;&nbsp; 请勿在公共场合讨论本频道内容 &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+    <span>本频道交易自行承担风险 &nbsp;&nbsp;|&nbsp;&nbsp; 所有交易记录仅保存于本机，注销后自动清除 &nbsp;&nbsp;|&nbsp;&nbsp; 请勿在公共场合讨论本频道内容 &nbsp;&nbsp;|&nbsp;&nbsp; 请勿在公共场合讨论本频道内容 &nbsp;&nbsp;|&nbsp;&nbsp; 请勿在公共场合讨论本频道内容 &nbsp;&nbsp;|&nbsp;&nbsp;</span>
   </div>
 
   <div class="dm-hero">
-    <h1>反常物品交易频道</h1>
-    <p>以下物品来源不明，效果未经科学验证，交易与使用后果自负。</p>
+    <h1>物品交易频道</h1>
+    <p>请按需订购。交易与使用后果自负。</p>
   </div>
 
   <div class="dm-grid" id="dm-grid"></div>
@@ -50,11 +50,11 @@
     </div>
   </div>
 
-  <div class="dm-footer">连接已加密（伪）· 请勿外传本频道链接</div>
+  <div class="dm-footer">连接已加密，请勿外传本频道链接</div>
 
 <script>
   const ITEMS = [
-    { name: "低语耳环", desc: "佩戴后能听见旁人听不到的低语，来源不明，效果因人而异。", price: 340 },
+    { name: "补剂", desc: "请务必与药品搭配使用。", price: 340 },
     { name: "无相束缚绳", desc: "据称曾用于封锁某三级反常物证，实际效果未经证实。", price: 275 },
     { name: "潮汐罗盘", desc: "指针从不指向北方，长期使用者报告出现方向感紊乱。", price: 410 },
     { name: "苍白契约书", desc: "空白纸页，据说签名后内容才会显现，签署后果自负。", price: 500 },
@@ -86,8 +86,6 @@
   }
 
   function formatDate(d) {
-    // 年份固定为1997，月/日/时间取玩家设备的当前值，
-    // 营造"你现在正身处1997年"的沉浸感
     const pad = n => String(n).padStart(2, "0");
     return "1997-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
       " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
@@ -163,8 +161,7 @@
     localStorage.removeItem("dm_orders");
     window.location.href = "index.html";
   }
-
-  // 显示伪装用户名
+  
   (function() {
     try {
       const session = JSON.parse(localStorage.getItem("dm_session"));

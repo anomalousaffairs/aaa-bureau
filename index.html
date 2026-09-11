@@ -190,6 +190,12 @@
     setChatOptions([]);
     setTimeout(() => {
       addBotMessage("订单已提交，工作人员会尽快与您联系，感谢您的支持！🎉");
+      setTimeout(() => {
+        setChatOptions([
+          { label: "咨询商品", onClick: onAskProduct },
+          { label: "其他问题", onClick: onOtherQuestions }
+        ]);
+      }, 400);
     }, 500);
   }
 </script>

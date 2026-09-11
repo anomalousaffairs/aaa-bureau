@@ -90,6 +90,12 @@ function onNoMoreHelp() {
   setChatOptions([]);
   setTimeout(() => {
     addBotMessage("好的，祝您生活愉快～");
+    setTimeout(() => {
+      setChatOptions([
+        { label: "咨询商品", onClick: onAskProduct },
+        { label: "其他问题", onClick: onOtherQuestions }
+      ]);
+    }, 400);
   }, 500);
 }
 

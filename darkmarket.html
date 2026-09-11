@@ -86,8 +86,10 @@
   }
 
   function formatDate(d) {
+    // 年份固定为1997，月/日/时间取玩家设备的当前值，
+    // 营造"你现在正身处1997年"的沉浸感
     const pad = n => String(n).padStart(2, "0");
-    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
+    return "1997-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
       " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
   }
 

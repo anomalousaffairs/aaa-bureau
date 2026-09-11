@@ -2,73 +2,51 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>内部登录 - 联邦异常事务管理局</title>
-<link rel="stylesheet" href="style.css">
+<title>幸运会员登录 - 超级幸运大转盘</title>
+<link rel="stylesheet" href="ad.css">
 </head>
 <body>
 
-  <div class="banner">
-    <div class="auth-status" id="auth-status"></div>
-    <h1>★ Agency of Anomalous Affairs 联邦异常事务管理局 ★</h1>
-    <div class="subtitle">为国家安全，探索无法解释之事</div>
+  <div class="top-strip"></div>
+
+  <div class="topbar">
+    <a href="index.html">返回首页</a>
   </div>
 
-  <div class="marquee-bar">
-    <span>本网站为局内公开信息发布平台 &nbsp;|&nbsp; 最近更新：1997年3月 &nbsp;|&nbsp; 举报可疑活动请拨打内部专线 &nbsp;|&nbsp; 未经授权禁止转载本站内容 &nbsp;|&nbsp;</span>
+  <div class="marquee-ad">
+    <span>🎉 会员登录后可查看您的专属抽奖资格与奖品详情 🎉 &nbsp;|&nbsp; 忘记账号密码请联系客服 &nbsp;|&nbsp; 活动最终解释权归主办方所有 &nbsp;|&nbsp;</span>
   </div>
 
-  <div class="container">
-    <div class="layout">
+  <div class="hero">
+    <h1 style="font-size:30px;">★ 幸运会员登录 ★</h1>
+    <p><span class="blink-tag">【会员专享】</span>登录后立即查看您的中奖记录与专属福利</p>
+  </div>
 
-      <div class="sidebar">
-        <h3>站内导航</h3>
-        <ul>
-          <li><a href="portal.html">首页</a></li>
-          <li><a href="cases.html">案件档案室</a></li>
-          <li><a href="personnel.html">人事名录</a></li>
-          <li><a href="announcements.html">最新公告</a></li>
-          <li><a href="contact.html">联系我们</a></li>
-        </ul>
-        <h3>友情链接</h3>
-        <ul>
-          <li><a href="#">国家气象局</a></li>
-          <li><a href="#">联邦档案管理处</a></li>
-        </ul>
-      </div>
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="badge">会员通道</div>
+      <h2>会员账号验证</h2>
+      <p>请输入您的会员账号与密码，验证通过即可查看专属奖品信息</p>
 
-      <div class="content">
-        <h2>内部人员登录</h2>
-        <p>
-          本页面仅供本局在职及授权人员使用。未经授权尝试登录将被记录并上报。
-        </p>
-
-        <div class="login-box">
-          <div class="login-box-title">&gt; 身份验证</div>
-          <div class="login-box-note">请输入您的内部账号与密码</div>
-          <form id="login-form">
-            <div class="login-row">
-              <label for="login-username">用户名</label>
-              <input type="text" id="login-username" autocomplete="off">
-            </div>
-            <div class="login-row">
-              <label for="login-password">密码</label>
-              <input type="password" id="login-password" autocomplete="off">
-            </div>
-            <div class="login-submit">
-              <input type="submit" value="登录">
-            </div>
-          </form>
-          <div class="login-error" id="login-error">用户名或密码错误，请重试</div>
+      <form id="login-form">
+        <div class="field-row">
+          <label for="login-username">会员账号</label>
+          <input type="text" id="login-username" autocomplete="off">
         </div>
-      </div>
+        <div class="field-row">
+          <label for="login-password">登录密码</label>
+          <input type="password" id="login-password" autocomplete="off">
+        </div>
+        <button type="submit" class="fake-btn-submit">立即登录</button>
+      </form>
 
+      <div class="login-error-ad" id="login-error">账号或密码错误，请重试</div>
     </div>
-
-    <footer>
-      © 1997 联邦异常事务管理局 版权所有 | 本站最佳浏览效果：800x600分辨率，IE4.0以上版本<br>
-      <span class="pagecount">您是第 <span style="color:#0f0;background:#000;padding:1px 4px;">003417</span> 位访问者</span>
-    </footer>
   </div>
+
+  <footer class="ad-footer">
+    本页面内容与任何真实商品无关，仅供娱乐展示 | © 版权所有
+  </footer>
 
 <script src="auth.js"></script>
 <script>
@@ -80,7 +58,7 @@
     const errorBox = document.getElementById("login-error");
 
     if (!username || !password) {
-      errorBox.textContent = "请输入用户名和密码";
+      errorBox.textContent = "请输入会员账号和密码";
       errorBox.style.display = "block";
       return;
     }
@@ -91,10 +69,11 @@
       const redirect = params.get("redirect");
       window.location.href = redirect ? redirect : "portal.html";
     } else {
-      errorBox.textContent = "用户名或密码错误，请重试";
+      errorBox.textContent = "账号或密码错误，请重试";
       errorBox.style.display = "block";
     }
   });
 </script>
+
 </body>
 </html>

@@ -49,11 +49,11 @@
           <form id="login-form">
             <div class="login-row">
               <label for="login-username">用户名</label>
-              <input type="text" id="login-username" autocomplete="off" required>
+              <input type="text" id="login-username" autocomplete="off">
             </div>
             <div class="login-row">
               <label for="login-password">密码</label>
-              <input type="password" id="login-password" autocomplete="off" required>
+              <input type="password" id="login-password" autocomplete="off">
             </div>
             <div class="login-submit">
               <input type="submit" value="登录">
@@ -80,11 +80,19 @@
     const password = document.getElementById("login-password").value;
     const errorBox = document.getElementById("login-error");
 
+    if (!username || !password) {
+      errorBox.textContent = "请输入用户名和密码";
+      errorBox.style.display = "block";
+      return;
+    }
+
     if (login(username, password)) {
+      errorBox.style.display = "none";
       const params = new URLSearchParams(window.location.search);
       const redirect = params.get("redirect");
       window.location.href = redirect ? redirect : "index.html";
     } else {
+      errorBox.textContent = "用户名或密码错误，请重试";
       errorBox.style.display = "block";
     }
   });

@@ -1,5 +1,3 @@
-// ===== 客服聊天窗共用逻辑（首页/关于我们/免责声明 共享）=====
-
 let chatGreeted = false;
 
 function openChatPanel() {
@@ -48,7 +46,6 @@ function setChatOptions(options) {
   });
 }
 
-// 首次打开聊天窗时显示的通用欢迎语（仅显示一次）
 function ensureGreeting() {
   if (chatGreeted) return;
   chatGreeted = true;
@@ -65,7 +62,7 @@ function onAskProduct() {
   addUserMessage("咨询商品");
   setChatOptions([]);
   setTimeout(() => {
-    addBotMessage("您可以点击首页商品卡片上的「立即抢购」按钮进行抢购哦～还有其他可以帮您的吗？");
+    addBotMessage("您可以点击首页商品卡片上的“立即抢购”按钮进行抢购。还有其他可以帮您的吗？");
     setChatOptions([
       { label: "没有了", onClick: onNoMoreHelp },
       { label: "我想看看其他商品", onClick: onWantOtherProducts }
@@ -89,7 +86,7 @@ function onNoMoreHelp() {
   addUserMessage("没有了");
   setChatOptions([]);
   setTimeout(() => {
-    addBotMessage("好的，祝您生活愉快～");
+    addBotMessage("好的，祝您生活愉快。");
     setTimeout(() => {
       setChatOptions([
         { label: "咨询商品", onClick: onAskProduct },
@@ -103,7 +100,7 @@ function onWantOtherProducts() {
   addUserMessage("我想看看其他商品");
   setChatOptions([]);
   setTimeout(() => {
-    addBotMessage("这边是特殊渠道商品，需要先验证您的专属凭证号：");
+    addBotMessage("其他商品为特殊渠道商品，请先验证您的专属凭证号：");
     document.getElementById("chat-verify-row").style.display = "flex";
   }, 500);
 }
@@ -131,7 +128,6 @@ function submitVerifyCode() {
   }
 }
 
-// 页面加载即显示最小化气泡（呼应免责声明中"请通过右下角在线客服联系我们"的说法）
 document.addEventListener("DOMContentLoaded", function() {
   const bubble = document.getElementById("chat-bubble-min");
   if (bubble) bubble.classList.add("show");

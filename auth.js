@@ -1,6 +1,4 @@
 // ===== 登录状态管理 =====
-// 注意：这是纯前端静态站点，账号密码写在这里意味着任何人查看源代码都能看到。
-// 对ARG解谜来说这通常是故意的（"查看源代码"本身就是线索），但不具备真正的安全性。
 
 const ACCOUNTS = [
   { username: "p.audriac4392", password: "4392#Jsor0102" },
@@ -9,9 +7,22 @@ const ACCOUNTS = [
 ];
 
 function login(username, password) {
-  const account = ACCOUNTS.find(a => a.username === username && a.password === password);
+  console.log("LOGIN:", username, password);
+  console.log("ACCOUNTS:", ACCOUNTS);
+
+  const account = ACCOUNTS.find(
+    a => a.username === username && a.password === password
+  );
+
+  console.log("MATCH:", account);
+
   if (!account) return false;
-  localStorage.setItem("aaa_session", JSON.stringify({ username: account.username }));
+
+  localStorage.setItem(
+    "aaa_session",
+    JSON.stringify({ username: account.username })
+  );
+
   return true;
 }
 

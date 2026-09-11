@@ -17,7 +17,7 @@ const CASES = [
 
 // 示例：{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photos/pf-4187.jpg" }
 const PERSONNEL = [
-{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photo/PF-4187.jpeg" },
+{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photos/PF-4187.jpeg" },
 { id: "PF-0632", name: "玛格丽特·陈", position: "副局长", status: "在职" },
 { id: "PF-7714", name: "凯瑟琳·格雷", position: "总法律顾问", status: "不明" },
 { id: "PF-2958", name: "霍华尔·克雷吉", position: "监督特别探员", status: "在职" },

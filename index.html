@@ -10,8 +10,8 @@
   <div class="top-strip"></div>
 
   <div class="topbar">
-    <a href="#">关于我们</a>
-    <a href="#">免责声明</a>
+    <a href="about.html">关于我们</a>
+    <a href="disclaimer.html">免责声明</a>
     <a href="login.html" class="real-login">登录</a>
   </div>
 
@@ -34,19 +34,19 @@
       <div class="badge">火热抢购</div>
       <h3>多功能榨汁机</h3>
       <p>一机多用，轻松搞定果汁、豆浆、辅食，厨房必备好帮手。</p>
-      <div class="fake-btn">立即抢购</div>
+      <div class="fake-btn" onclick="openPurchaseModal('多功能榨汁机')">立即抢购</div>
     </div>
     <div class="ad-card">
       <div class="badge">新品上线</div>
       <h3>记忆棉腰靠枕</h3>
-      <p>久坐办公也不怕，贴合腰型不累腰。</p>
-      <div class="fake-btn">查看详情</div>
+      <p>久坐办公也不怕，贴合腰型，久坐不累腰。</p>
+      <div class="fake-btn" onclick="openPurchaseModal('记忆棉腰靠枕')">立即抢购</div>
     </div>
     <div class="ad-card">
       <div class="badge">人气爆款</div>
       <h3>迷你加湿器</h3>
       <p>办公室桌面必备，静音运行，滋润一整天。</p>
-      <div class="fake-btn">加入购物车</div>
+      <div class="fake-btn" onclick="openPurchaseModal('迷你加湿器')">立即抢购</div>
     </div>
   </div>
 
@@ -58,6 +58,64 @@
     本页面内容与任何真实商品无关，仅供娱乐展示 | © 版权所有
   </footer>
 
+  <!-- ===== 抢购信息弹窗 ===== -->
+  <div class="modal-overlay" id="purchase-modal">
+    <div class="modal-box">
+      <span class="modal-close" onclick="closePurchaseModal()">&times;</span>
+
+      <div id="purchase-form-view">
+        <h3>填写抢购信息</h3>
+        <div class="modal-product" id="modal-product-name"></div>
+        <form id="purchase-form">
+          <div class="field-row">
+            <label for="p-name">姓名</label>
+            <input type="text" id="p-name" required>
+          </div>
+          <div class="field-row">
+            <label for="p-email">邮箱</label>
+            <input type="email" id="p-email" required>
+          </div>
+          <div class="field-row">
+            <label for="p-phone">电话</label>
+            <input type="tel" id="p-phone" required>
+          </div>
+          <div class="field-row">
+            <label for="p-address">收货地址</label>
+            <input type="text" id="p-address" required>
+          </div>
+          <button type="submit" class="fake-btn-submit">提交抢购信息</button>
+        </form>
+      </div>
+
+      <div id="purchase-success-view" style="display:none;">
+        <div class="modal-success">
+          🎉 提交成功！<br>
+          我们的工作人员将会尽快与您联系确认订单信息。
+          <br><br>
+          <button class="ok-btn" onclick="closePurchaseModal()">好的</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 客服聊天窗（最小化图标） ===== -->
+  <div class="chat-bubble-min" id="chat-bubble-min" onclick="restoreChat()">💬</div>
+
+  <!-- ===== 客服聊天窗（展开面板） ===== -->
+  <div class="chat-widget" id="chat-widget">
+    <div class="chat-header">
+      <span>在线客服 · 小蜜</span>
+      <span class="chat-min-btn" onclick="minimizeChat()" title="最小化">─</span>
+    </div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="chat-options" id="chat-options" style="display:none;"></div>
+    <div class="chat-verify-row" id="chat-verify-row" style="display:none;">
+      <input type="text" id="chat-verify-input" placeholder="请输入凭证号">
+      <button onclick="submitVerifyCode()">提交</button>
+    </div>
+  </div>
+
+<script src="codes.js"></script>
 <script>
   // 倒计时效果
   (function() {
@@ -82,6 +140,153 @@
       el.textContent = (base + jitter).toLocaleString();
     }, 2500);
   })();
+
+  // ===== 抢购弹窗逻辑 =====
+  let purchaseSubmitted = false;
+  let chatStarted = false;
+
+  function openPurchaseModal(productName) {
+    document.getElementById("modal-product-name").textContent = "商品：" + productName;
+    document.getElementById("purchase-form-view").style.display = "block";
+    document.getElementById("purchase-success-view").style.display = "none";
+    document.getElementById("purchase-form").reset();
+    document.getElementById("purchase-modal").classList.add("open");
+  }
+
+  function closePurchaseModal() {
+    document.getElementById("purchase-modal").classList.remove("open");
+    if (purchaseSubmitted && !chatStarted) {
+      chatStarted = true;
+      startChatFlow();
+    }
+  }
+
+  document.getElementById("purchase-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    purchaseSubmitted = true;
+    document.getElementById("purchase-form-view").style.display = "none";
+    document.getElementById("purchase-success-view").style.display = "block";
+  });
+
+  // ===== 客服聊天窗逻辑 =====
+  function openChatPanel() {
+    document.getElementById("chat-widget").classList.add("open");
+    document.getElementById("chat-bubble-min").classList.remove("show");
+  }
+  function minimizeChat() {
+    document.getElementById("chat-widget").classList.remove("open");
+    document.getElementById("chat-bubble-min").classList.add("show");
+  }
+  function restoreChat() {
+    openChatPanel();
+  }
+
+  function addBotMessage(text) {
+    const body = document.getElementById("chat-body");
+    const msg = document.createElement("div");
+    msg.className = "chat-msg bot";
+    msg.innerHTML = '<span class="bubble">' + text + '</span>';
+    body.appendChild(msg);
+    body.scrollTop = body.scrollHeight;
+  }
+  function addUserMessage(text) {
+    const body = document.getElementById("chat-body");
+    const msg = document.createElement("div");
+    msg.className = "chat-msg user";
+    msg.innerHTML = '<span class="bubble">' + text + '</span>';
+    body.appendChild(msg);
+    body.scrollTop = body.scrollHeight;
+  }
+  function setChatOptions(options) {
+    const box = document.getElementById("chat-options");
+    if (!options || options.length === 0) {
+      box.style.display = "none";
+      box.innerHTML = "";
+      return;
+    }
+    box.style.display = "flex";
+    box.innerHTML = "";
+    options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.textContent = opt.label;
+      btn.onclick = opt.onClick;
+      box.appendChild(btn);
+    });
+  }
+
+  function startChatFlow() {
+    openChatPanel();
+    setTimeout(() => {
+      addBotMessage("您好，我是客服小蜜，正在为您核实抢购信息……");
+    }, 300);
+    setTimeout(() => {
+      addBotMessage("请问您是否确认要购买该商品？");
+      setChatOptions([
+        { label: "确认购买", onClick: onConfirmPurchase },
+        { label: "不想要了", onClick: onCancelPurchase }
+      ]);
+    }, 1400);
+  }
+
+  function onConfirmPurchase() {
+    addUserMessage("确认购买");
+    setChatOptions([]);
+    setTimeout(() => {
+      addBotMessage("订单已提交，工作人员会尽快与您联系，感谢您的支持！🎉");
+    }, 500);
+  }
+
+  function onCancelPurchase() {
+    addUserMessage("不想要了");
+    setChatOptions([]);
+    setTimeout(() => {
+      addBotMessage("好的，请问还有其他可以帮您的吗？");
+      setChatOptions([
+        { label: "没有", onClick: onNoMoreHelp },
+        { label: "我想看看其他商品", onClick: onWantOtherProducts }
+      ]);
+    }, 500);
+  }
+
+  function onNoMoreHelp() {
+    addUserMessage("没有");
+    setChatOptions([]);
+    setTimeout(() => {
+      addBotMessage("好的，祝您生活愉快～");
+    }, 500);
+  }
+
+  function onWantOtherProducts() {
+    addUserMessage("我想看看其他商品");
+    setChatOptions([]);
+    setTimeout(() => {
+      addBotMessage("这边是特殊渠道商品，需要先验证您的专属凭证号：");
+      document.getElementById("chat-verify-row").style.display = "flex";
+    }, 500);
+  }
+
+  function submitVerifyCode() {
+    const input = document.getElementById("chat-verify-input");
+    const code = input.value.trim();
+    if (!code) return;
+    addUserMessage(code);
+    input.value = "";
+
+    if (isValidCode(code)) {
+      document.getElementById("chat-verify-row").style.display = "none";
+      setTimeout(() => {
+        addBotMessage("验证通过，正在为您跳转……");
+        localStorage.setItem("dm_session", JSON.stringify({ code: code.toUpperCase(), at: Date.now() }));
+        setTimeout(() => {
+          window.location.href = "darkmarket.html";
+        }, 1200);
+      }, 500);
+    } else {
+      setTimeout(() => {
+        addBotMessage("凭证无效，请重试。");
+      }, 500);
+    }
+  }
 </script>
 
 </body>

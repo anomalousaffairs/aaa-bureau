@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>·</title>
+<link rel="stylesheet" href="dm.css">
+<script>
+  // 未持有有效凭证会话，直接打回抽奖页面
+  (function() {
+    try {
+      const session = localStorage.getItem("dm_session");
+      if (!session) {
+        window.location.href = "index.html";
+      }
+    } catch (e) {
+      window.location.href = "index.html";
+    }
+  })();
+</script>
+</head>
+<body>
+
+  <div class="dm-topbar">
+    <div class="dm-brand">░ 反常物品交易频道 ░</div>
+    <div class="dm-user-area">
+      <span>用户：<span class="dm-username" id="dm-username">访客</span></span>
+      <span class="dm-link" onclick="openOrders()">订购记录</span>
+      <span class="dm-link" onclick="dmLogout()">注销并删除浏览痕迹</span>
+    </div>
+  </div>
+
+  <div class="dm-marquee">
+    <span>本频道内容真实性未经核实，交易自行承担风险 &nbsp;&nbsp;|&nbsp;&nbsp; 所有交易记录仅保存于本机，注销后自动清除 &nbsp;&nbsp;|&nbsp;&nbsp; 请勿在公共场合讨论本频道内容 &nbsp;&nbsp;|&nbsp;&nbsp;</span>
+  </div>
+
+  <div class="dm-hero">
+    <h1>反常物品交易频道</h1>
+    <p>以下物品来源不明，效果未经科学验证，交易与使用后果自负。</p>
+  </div>
+
+  <div class="dm-grid" id="dm-grid"></div>
+
+  <div class="dm-toast" id="dm-toast"></div>
+
+  <!-- 订购记录面板 -->
+  <div class="dm-orders-overlay" id="dm-orders-overlay">
+    <div class="dm-orders-box">
+      <h3>订购记录 <span class="dm-close" onclick="closeOrders()">&times;</span></h3>
+      <div id="dm-orders-content"></div>
+    </div>
+  </div>
+
+  <div class="dm-footer">连接已加密（伪）· 请勿外传本频道链接</div>
+
+<script>
+  const ITEMS = [
+    { name: "低语耳环", desc: "佩戴后能听见旁人听不到的低语，来源不明，效果因人而异。", price: 340 },
+    { name: "无相束缚绳", desc: "据称曾用于封锁某三级反常物证，实际效果未经证实。", price: 275 },
+    { name: "潮汐罗盘", desc: "指针从不指向北方，长期使用者报告出现方向感紊乱。", price: 410 },
+    { name: "苍白契约书", desc: "空白纸页，据说签名后内容才会显现，签署后果自负。", price: 500 },
+    { name: "深渊坐标残片", desc: "与九十年代某未公开档案存在关联，来源存疑，谨慎持有。", price: 680 },
+    { name: "第七区通讯残片", desc: "内部录有不明频率的电流杂音，收听时长请自行斟酌。", price: 560 }
+  ];
+
+  function renderItems() {
+    const grid = document.getElementById("dm-grid");
+    grid.innerHTML = ITEMS.map((item, idx) => `
+      <div class="dm-item">
+        <div class="dm-item-name">${item.name}</div>
+        <div class="dm-item-desc">${item.desc}</div>
+        <div class="dm-item-price">${item.price} 信用点</div>
+        <div class="dm-qty-row">
+          数量：<input type="text" value="1" id="qty-${idx}">
+        </div>
+        <button class="dm-order-btn" onclick="placeOrder(${idx})">订购</button>
+      </div>
+    `).join("");
+  }
+  renderItems();
+
+  function genOrderId() {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let s = "DM-";
+    for (let i = 0; i < 6; i++) s += chars[Math.floor(Math.random() * chars.length)];
+    return s;
+  }
+
+  function formatDate(d) {
+    const pad = n => String(n).padStart(2, "0");
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
+      " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
+  }
+
+  function getOrders() {
+    try {
+      return JSON.parse(localStorage.getItem("dm_orders") || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+  function saveOrders(orders) {
+    localStorage.setItem("dm_orders", JSON.stringify(orders));
+  }
+
+  function placeOrder(idx) {
+    const item = ITEMS[idx];
+    const qtyInput = document.getElementById("qty-" + idx);
+    let qty = parseInt(qtyInput.value, 10);
+    if (!qty || qty < 1) qty = 1;
+
+    const order = {
+      orderId: genOrderId(),
+      itemName: item.name,
+      qty: qty,
+      date: formatDate(new Date()),
+      status: "处理中"
+    };
+    const orders = getOrders();
+    orders.unshift(order);
+    saveOrders(orders);
+
+    showToast("订购成功，订单号：" + order.orderId);
+  }
+
+  function showToast(text) {
+    const toast = document.getElementById("dm-toast");
+    toast.textContent = text;
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 2200);
+  }
+
+  function openOrders() {
+    const orders = getOrders();
+    const content = document.getElementById("dm-orders-content");
+    if (orders.length === 0) {
+      content.innerHTML = '<div class="dm-empty-note">暂无订购记录</div>';
+    } else {
+      content.innerHTML = `
+        <table class="dm-orders-table">
+          <tr><th>订单号</th><th>物品名称</th><th>数量</th><th>交易日期</th><th>交易情况</th></tr>
+          ${orders.map(o => `
+            <tr>
+              <td>${o.orderId}</td>
+              <td>${o.itemName}</td>
+              <td>${o.qty}</td>
+              <td>${o.date}</td>
+              <td class="dm-status-${o.status}">${o.status}</td>
+            </tr>
+          `).join("")}
+        </table>
+      `;
+    }
+    document.getElementById("dm-orders-overlay").classList.add("open");
+  }
+  function closeOrders() {
+    document.getElementById("dm-orders-overlay").classList.remove("open");
+  }
+
+  function dmLogout() {
+    localStorage.removeItem("dm_session");
+    localStorage.removeItem("dm_orders");
+    window.location.href = "index.html";
+  }
+
+  // 显示伪装用户名
+  (function() {
+    try {
+      const session = JSON.parse(localStorage.getItem("dm_session"));
+      if (session && session.code) {
+        document.getElementById("dm-username").textContent = "访客·" + session.code.slice(-4);
+      }
+    } catch (e) {}
+  })();
+</script>
+
+</body>
+</html>

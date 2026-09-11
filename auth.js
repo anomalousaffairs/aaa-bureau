@@ -4,7 +4,8 @@
 
 const ACCOUNTS = [
   { username: "p.audriac4392", password: "4392#Jsor0102" },
-  { username: "i.yanato3264", password: "cowkitty339" }
+  { username: "i.yanato3264", password: "cowkitty339" },
+  { username: "guest", password: "guest" },
 ];
 
 function login(username, password) {

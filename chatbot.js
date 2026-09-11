@@ -65,7 +65,7 @@ function onAskProduct() {
   addUserMessage("咨询商品");
   setChatOptions([]);
   setTimeout(() => {
-    addBotMessage("您可以点击首页商品卡片上的"立即抢购"按钮进行抢购哦～还有其他可以帮您的吗？");
+    addBotMessage("您可以点击首页商品卡片上的「立即抢购」按钮进行抢购哦～还有其他可以帮您的吗？");
     setChatOptions([
       { label: "没有了", onClick: onNoMoreHelp },
       { label: "我想看看其他商品", onClick: onWantOtherProducts }

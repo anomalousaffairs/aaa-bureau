@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>人事名录 - 联邦异常事务管理局</title>
+<title>联系我们 - 联邦异常事务管理局</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,9 +25,9 @@
         <ul>
           <li><a href="index.html">首页</a></li>
           <li><a href="cases.html">案件档案室</a></li>
-          <li><a href="personnel.html" class="current">人事名录</a></li>
+          <li><a href="personnel.html">人事名录</a></li>
           <li><a href="announcements.html">最新公告</a></li>
-          <li><a href="contact.html">联系我们</a></li>
+          <li><a href="contact.html" class="current">联系我们</a></li>
         </ul>
         <h3>友情链接</h3>
         <ul>
@@ -38,12 +38,36 @@
       </div>
 
       <div class="content">
-        <h2>人事名录</h2>
+        <h2>联系我们</h2>
         <p>
-          本页收录本局在职及曾任职人员的公开信息。点击姓名可查看该人员的完整档案（需登录）。
+          如您需要向本局提交信息、进行技术咨询或申请合作，请参考以下联系方式。
         </p>
 
-        <div id="personnel-container"></div>
+        <div class="contact-layout">
+          <div class="map-placeholder">
+            ［ 地图数据 · 暂不可用 ］<br>请与总机联系获取详细路线
+          </div>
+
+          <div class="contact-info">
+            <div class="contact-group">
+              <h3>本部地址</h3>
+              <div class="contact-row"><span class="label">联系地址：</span>华盛顿特区 北环大道 4400 号</div>
+              <div class="contact-row"><span class="label">邮政编码：</span>20535</div>
+              <div class="contact-row"><span class="label">总机电话：</span>(202) 555-0114</div>
+            </div>
+
+            <div class="contact-group">
+              <h3>技术支持</h3>
+              <div class="contact-row"><span class="label">技术支持：</span>support@aaa.gov</div>
+              <div class="contact-row"><span class="label">线索举报：</span>tips@aaa.gov</div>
+            </div>
+
+            <div class="contact-group">
+              <h3>合作事务</h3>
+              <div class="contact-row"><span class="label">合作邮箱：</span>liaison@aaa.gov</div>
+            </div>
+          </div>
+        </div>
 
         <div class="search-box">
           <label>&gt; 站内检索系统 v1.2</label><br><br>
@@ -63,24 +87,5 @@
 
 <script src="auth.js"></script>
 <script src="data.js"></script>
-<script>
-  (function renderPersonnel() {
-    function initials(name) {
-      return name.replace(/·/g, "").slice(-1);
-    }
-
-    const cards = PERSONNEL.map(p =>
-      '<div class="personnel-card" id="' + p.id + '">' +
-        '<div class="avatar">' + initials(p.name) + '</div>' +
-        '<div class="personnel-name"><a href="staff.html?id=' + encodeURIComponent(p.id) + '">' + p.name + '</a></div>' +
-        '<div class="personnel-position">' + p.position + '</div>' +
-        '<span class="personnel-status status-' + p.status + '">' + p.status + '</span>' +
-      '</div>'
-    ).join("");
-
-    const container = document.getElementById("personnel-container");
-    container.innerHTML = '<div class="personnel-grid">' + cards + '</div>';
-  })();
-</script>
 </body>
 </html>

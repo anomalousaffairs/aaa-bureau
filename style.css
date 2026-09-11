@@ -584,3 +584,85 @@ a.blink {
   color: #000080;
   font-weight: bold;
 }
+
+/* ===== 最新公告 ===== */
+.notice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #808080;
+}
+.notice-item {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+.notice-item:last-child {
+  border-bottom: none;
+}
+.notice-date {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #666;
+}
+.notice-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000080;
+  margin: 3px 0 5px 0;
+}
+.notice-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #222;
+}
+
+/* ===== 联系我们 ===== */
+.contact-layout {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.map-placeholder {
+  width: 260px;
+  height: 200px;
+  flex-shrink: 0;
+  border: 2px dashed #808080;
+  background: #e8e4d8;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 19px, #d4d0c8 19px, #d4d0c8 20px),
+    repeating-linear-gradient(90deg, transparent, transparent 19px, #d4d0c8 19px, #d4d0c8 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  color: #808080;
+  font-family: "Courier New", monospace;
+}
+.contact-info {
+  flex: 1;
+  min-width: 220px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.contact-info h3 {
+  background: #000080;
+  color: #ffff00;
+  font-size: 12px;
+  padding: 3px 6px;
+  margin: 0 0 8px 0;
+}
+.contact-info .contact-row {
+  margin-bottom: 3px;
+}
+.contact-info .contact-row span.label {
+  display: inline-block;
+  width: 90px;
+  color: #000080;
+  font-weight: bold;
+}
+.contact-info .contact-group {
+  margin-bottom: 18px;
+}

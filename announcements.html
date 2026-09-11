@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>最新公告 - 联邦异常事务管理局</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="banner">
+    <div class="auth-status" id="auth-status"></div>
+    <h1>★ Agency of Anomalous Affairs 联邦异常事务管理局 ★</h1>
+    <div class="subtitle">为国家安全，探索无法解释之事</div>
+  </div>
+
+  <div class="marquee-bar">
+    <span>本网站为局内公开信息发布平台 &nbsp;|&nbsp; 最近更新：1997年3月 &nbsp;|&nbsp; 举报可疑活动请拨打内部专线 &nbsp;|&nbsp; 未经授权禁止转载本站内容 &nbsp;|&nbsp;</span>
+  </div>
+
+  <div class="container">
+    <div class="layout">
+
+      <div class="sidebar">
+        <h3>站内导航</h3>
+        <ul>
+          <li><a href="index.html">首页</a></li>
+          <li><a href="cases.html">案件档案室</a></li>
+          <li><a href="personnel.html">人事名录</a></li>
+          <li><a href="announcements.html" class="current">最新公告</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+        </ul>
+        <h3>友情链接</h3>
+        <ul>
+          <li><a href="#">国家气象局</a></li>
+          <li><a href="#">联邦档案管理处</a></li>
+          <li><a href="login.html" class="blink">内部登录 ▶</a></li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <h2>最新公告</h2>
+        <p>
+          本栏目发布本局日常行政通告。如内容涉及具体案件或人员，请前往对应档案查阅详情。
+        </p>
+
+        <ul class="notice-list">
+          <li class="notice-item">
+            <div class="notice-date">1997年3月2日</div>
+            <div class="notice-title">关于近期人员异动的通知</div>
+            <div class="notice-body">
+              调查部下属部分人员工作安排近期有所调整，具体信息请以人事名录页面公示为准。
+              如有疑问请联系各部门负责人。
+            </div>
+          </li>
+          <li class="notice-item">
+            <div class="notice-date">1997年1月14日</div>
+            <div class="notice-title">年度档案库例行盘点公告</div>
+            <div class="notice-body">
+              本局档案室将于近期进行年度例行盘点，盘点期间部分历史案件档案查阅功能可能出现延迟，
+              敬请谅解。
+            </div>
+          </li>
+          <li class="notice-item">
+            <div class="notice-date">1996年11月18日</div>
+            <div class="notice-title">办公楼设备例行维护公告</div>
+            <div class="notice-body">
+              为配合设备维护工作，本局三号楼地下区域将于本月底短暂封闭。已获授权人员请提前
+              向后勤部门报备。
+            </div>
+          </li>
+          <li class="notice-item">
+            <div class="notice-date">1996年8月30日</div>
+            <div class="notice-title">关于加强档案保密工作的通知</div>
+            <div class="notice-body">
+              近期发现个别档案存在未按规定流程借阅的情况，现重申：涉密档案借阅须经审批，
+              任何形式的外传均属违规行为。
+            </div>
+          </li>
+        </ul>
+
+        <div class="search-box">
+          <label>&gt; 站内检索系统 v1.2</label><br><br>
+          <input type="text" id="q" placeholder="请输入关键词...">
+          <input type="submit" value="检索" onclick="doSearch()">
+          <div class="search-result" id="result"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      © 1997 联邦异常事务管理局 版权所有 | 本站最佳浏览效果：800x600分辨率，IE4.0以上版本<br>
+      <span class="pagecount">您是第 <span style="color:#0f0;background:#000;padding:1px 4px;">003417</span> 位访问者</span>
+    </footer>
+  </div>
+
+<script src="auth.js"></script>
+<script src="data.js"></script>
+</body>
+</html>

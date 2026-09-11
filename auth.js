@@ -33,6 +33,13 @@ function isLoggedIn() {
   return getCurrentUser() !== null;
 }
 
+function requireLogin() {
+  if (!isLoggedIn()) {
+    const here = window.location.pathname.split("/").pop() + window.location.search;
+    window.location.href = "login.html?redirect=" + encodeURIComponent(here);
+  }
+}
+
 function renderAuthStatus() {
   const el = document.getElementById("auth-status");
   if (!el) return;

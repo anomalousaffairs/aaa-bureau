@@ -2,144 +2,86 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>联邦异常事务管理局 - 官方网站</title>
-<link rel="stylesheet" href="style.css">
+<title>★★★ 超级幸运大转盘 - 天天抽奖天天赢 ★★★</title>
+<link rel="stylesheet" href="ad.css">
 </head>
 <body>
 
-  <div class="banner">
-    <div class="auth-status" id="auth-status"></div>
-    <h1>★ Agency of Anomalous Affairs 联邦异常事务管理局 ★</h1>
-    <div class="subtitle">为国家安全，探索无法解释之事</div>
+  <div class="top-strip"></div>
+
+  <div class="topbar">
+    <a href="#">关于我们</a>
+    <a href="#">免责声明</a>
+    <a href="login.html" class="real-login">登录</a>
   </div>
 
-  <div class="marquee-bar">
-    <span>本网站为局内公开信息发布平台 &nbsp;|&nbsp; 最近更新：1997年3月 &nbsp;|&nbsp; 举报可疑活动请拨打内部专线 &nbsp;|&nbsp; 未经授权禁止转载本站内容 &nbsp;|&nbsp;</span>
+  <div class="marquee-ad">
+    <span>🎉 恭喜您已成为幸运访客！立即注册领取神秘大礼包 🎉 &nbsp;|&nbsp; 全场家居用品限时5折 &nbsp;|&nbsp; 点击下方转盘赢取超值奖品 &nbsp;|&nbsp; 好运连连，转出精彩 &nbsp;|&nbsp;</span>
   </div>
 
-  <div class="container">
-    <div class="layout">
+  <div class="hero">
+    <h1>★ 超级幸运大转盘 ★</h1>
+    <p><span class="blink-tag">【限时活动】</span>每天登录即可免费抽奖一次，好礼不停送！</p>
+  </div>
 
-      <div class="sidebar">
-        <h3>站内导航</h3>
-        <ul>
-          <li><a href="index.html" class="current">首页</a></li>
-          <li><a href="cases.html">案件档案室</a></li>
-          <li><a href="personnel.html">人事名录</a></li>
-          <li><a href="announcements.html">最新公告</a></li>
-          <li><a href="contact.html">联系我们</a></li>
-        </ul>
-        <h3>友情链接</h3>
-        <ul>
-          <li><a href="#">国家气象局</a></li>
-          <li><a href="#">联邦档案管理处</a></li>
-          <li><a href="login.html" class="blink">内部登录 ▶</a></li>
-        </ul>
-      </div>
+  <div class="wheel-section">
+    <div class="wheel"></div>
+    <div>活动倒计时：<span class="countdown" id="countdown">00:59:59</span></div>
+  </div>
 
-      <div class="content">
-        <div class="badge-seal">局徽<br>AAA<br>1962</div>
-        <h2>欢迎访问本局官方网站</h2>
-        <p>
-          联邦异常事务管理局（AAA）成立于1962年，隶属于国家安全事务下属特别编制部门，
-          负责调查、评估并处理无法以常规科学手段解释的异常事件。本局工作内容涉及国家机密，
-          部分档案对公众不予公开。
-        </p>
-        <p>
-          本站为方便社会公众了解本局职能而设立，如您掌握与本局职责相关的可疑线索，
-          请通过下方留言板提交信息。感谢您对国家安全事业的支持。
-        </p>
-
-        <div class="under-construction">
-          ⚠ 本页面部分内容仍在建设中，敬请谅解 ⚠
-        </div>
-
-        <div class="search-box">
-          <label>&gt; 站内检索系统 v1.2</label><br><br>
-          <input type="text" id="q" placeholder="请输入关键词...">
-          <input type="submit" value="检索" onclick="doSearch()">
-          <div class="search-result" id="result"></div>
-        </div>
-
-        <div class="guestbook">
-          <div class="guestbook-title">&gt; 公众留言板</div>
-
-          <p class="guestbook-note">
-            如您掌握与本局职责相关的信息，请填写以下表格。<br>
-            本局将根据情况进行调查。
-          </p>
-
-          <form id="guestbook-form">
-
-            <div class="guestbook-row">
-              <label for="guest-name">姓名：</label>
-              <input
-                type="text"
-                id="guest-name"
-                name="name"
-                maxlength="50"
-                required
-              >
-            </div>
-
-            <div class="guestbook-row">
-              <label for="guest-email">邮箱：</label>
-              <input
-                type="email"
-                id="guest-email"
-                name="email"
-                maxlength="100"
-                required
-              >
-            </div>
-
-            <div class="guestbook-row">
-              <label for="guest-message">内容：</label>
-              <textarea
-                id="guest-message"
-                name="message"
-                maxlength="1000"
-                required
-              ></textarea>
-            </div>
-
-            <div class="guestbook-submit">
-              <input type="submit" value="提交">
-              <input type="reset" value="清除">
-            </div>
-
-          </form>
-
-          <div id="guestbook-result" class="guestbook-result"></div>
-        </div>
-      </div>
-
+  <div class="banner-grid">
+    <div class="ad-card">
+      <div class="badge">火热抢购</div>
+      <h3>多功能榨汁机</h3>
+      <p>一机多用，轻松搞定果汁、豆浆、辅食，厨房必备好帮手。</p>
+      <div class="fake-btn">立即抢购</div>
     </div>
-
-    <footer>
-      © 1997 联邦异常事务管理局 版权所有 | 本站最佳浏览效果：800x600分辨率，IE4.0以上版本<br>
-      <span class="pagecount">
-        您是第
-        <span style="color:#0f0;background:#000;padding:1px 4px;">003417</span>
-        位访问者
-      </span>
-    </footer>
+    <div class="ad-card">
+      <div class="badge">新品上线</div>
+      <h3>记忆棉腰靠枕</h3>
+      <p>久坐办公也不怕，贴合腰型，久坐不累腰。</p>
+      <div class="fake-btn">查看详情</div>
+    </div>
+    <div class="ad-card">
+      <div class="badge">人气爆款</div>
+      <h3>迷你加湿器</h3>
+      <p>办公室桌面必备，静音运行，滋润一整天。</p>
+      <div class="fake-btn">加入购物车</div>
+    </div>
   </div>
 
-<script src="auth.js"></script>
-<script src="data.js"></script>
+  <div class="visitor-strip">
+    今日已有 <b id="visitor-count">28,461</b> 位幸运访客参与抽奖 &nbsp;|&nbsp; 中奖名单每日更新
+  </div>
+
+  <footer class="ad-footer">
+    本页面内容与任何真实商品无关，仅供娱乐展示 | © 版权所有
+  </footer>
 
 <script>
-  document.getElementById("guestbook-form").addEventListener("submit", function(event) {
-    event.preventDefault();
+  // 倒计时效果
+  (function() {
+    let totalSeconds = 59 * 60 + 59;
+    const el = document.getElementById("countdown");
+    setInterval(function() {
+      if (totalSeconds <= 0) { totalSeconds = 59 * 60 + 59; }
+      totalSeconds--;
+      const h = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
+      const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+      const s = String(totalSeconds % 60).padStart(2, "0");
+      el.textContent = h + ":" + m + ":" + s;
+    }, 1000);
+  })();
 
-    const result = document.getElementById("guestbook-result");
-
-    result.innerHTML =
-      "留言已提交。感谢您对联邦异常事务管理局工作的支持。";
-
-    this.reset();
-  });
+  // 访客数字小幅跳动
+  (function() {
+    const el = document.getElementById("visitor-count");
+    setInterval(function() {
+      const base = 28461;
+      const jitter = Math.floor(Math.random() * 12);
+      el.textContent = (base + jitter).toLocaleString();
+    }, 2500);
+  })();
 </script>
 
 </body>

@@ -1,0 +1,200 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  background-image:
+    radial-gradient(circle, #ffe6f5 1px, transparent 1px),
+    radial-gradient(circle, #e6f5ff 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  font-family: "Comic Sans MS", "Chalkboard SE", cursive, sans-serif;
+  color: #222;
+}
+
+.top-strip {
+  background: repeating-linear-gradient(45deg, #ff2fb0, #ff2fb0 12px, #ffd400 12px, #ffd400 24px);
+  height: 10px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  color: #888;
+}
+.topbar a {
+  color: #888;
+  text-decoration: none;
+  margin-left: 12px;
+}
+.topbar a:hover {
+  text-decoration: underline;
+}
+.topbar .real-login {
+  color: #999;
+}
+
+.hero {
+  text-align: center;
+  padding: 10px 20px 30px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin: 10px 0;
+  background: linear-gradient(90deg, #ff2fb0, #ff8a00, #ffe600, #35d635, #00b4ff, #a244ff, #ff2fb0);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow-move 4s linear infinite;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.06);
+}
+@keyframes rainbow-move {
+  to { background-position: 300% center; }
+}
+
+.blink-tag {
+  animation: blinker 0.9s step-start infinite;
+  color: #ff0000;
+  font-weight: bold;
+}
+@keyframes blinker { 50% { opacity: 0; } }
+
+.marquee-ad {
+  background: #000080;
+  color: #ffff00;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-ad span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-ad 14s linear infinite;
+}
+@keyframes scroll-ad {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.banner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.ad-card {
+  width: 220px;
+  border: 4px solid;
+  border-image: repeating-linear-gradient(45deg, #ff2fb0, #ff2fb0 6px, #ffd400 6px, #ffd400 12px) 4;
+  background: #fff;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+}
+.ad-card .badge {
+  display: inline-block;
+  background: #ff0000;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  transform: rotate(-4deg);
+}
+.ad-card h3 {
+  margin: 4px 0;
+  font-size: 17px;
+  color: #a244ff;
+}
+.ad-card p {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+.ad-card .fake-btn {
+  display: inline-block;
+  margin-top: 8px;
+  background: linear-gradient(#35d635, #1fa61f);
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 2px solid #0d7a0d;
+  cursor: default;
+  font-size: 13px;
+}
+
+.wheel-section {
+  text-align: center;
+  padding: 10px 0 30px 0;
+}
+.wheel {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background: conic-gradient(#ff2fb0 0deg 60deg, #ffd400 60deg 120deg, #35d635 120deg 180deg, #00b4ff 180deg 240deg, #a244ff 240deg 300deg, #ff8a00 300deg 360deg);
+  border: 6px solid #333;
+  animation: spin 6s linear infinite;
+  position: relative;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.wheel::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 18px; height: 18px;
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.countdown {
+  font-family: "Courier New", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0000;
+  background: #000;
+  display: inline-block;
+  padding: 6px 14px;
+  border: 2px dashed #ffd400;
+  margin-top: 6px;
+}
+
+.visitor-strip {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: #333;
+  padding: 10px;
+  background: #f5f5f5;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+.visitor-strip b {
+  color: #ff2fb0;
+  font-size: 16px;
+}
+
+footer.ad-footer {
+  text-align: center;
+  font-size: 10px;
+  color: #aaa;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}

@@ -23,7 +23,7 @@
       <div class="sidebar">
         <h3>站内导航</h3>
         <ul>
-          <li><a href="index.html">首页</a></li>
+          <li><a href="portal.html">首页</a></li>
           <li><a href="cases.html">案件档案室</a></li>
           <li><a href="personnel.html">人事名录</a></li>
           <li><a href="announcements.html">最新公告</a></li>
@@ -33,7 +33,6 @@
         <ul>
           <li><a href="#">国家气象局</a></li>
           <li><a href="#">联邦档案管理处</a></li>
-          <li><a href="login.html" class="blink">内部登录 ▶</a></li>
         </ul>
       </div>
 
@@ -90,7 +89,7 @@
       errorBox.style.display = "none";
       const params = new URLSearchParams(window.location.search);
       const redirect = params.get("redirect");
-      window.location.href = redirect ? redirect : "index.html";
+      window.location.href = redirect ? redirect : "portal.html";
     } else {
       errorBox.textContent = "用户名或密码错误，请重试";
       errorBox.style.display = "block";

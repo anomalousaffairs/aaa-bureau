@@ -11,8 +11,8 @@
 
   <div class="banner">
     <div class="auth-status" id="auth-status"></div>
-    <h1>★ Agency of Anomalous Affairs ★</h1>
-    <div class="subtitle">联邦异常事务管理局</div>
+    <h1>★ Agency of Anomalous Affairs 联邦异常事务管理局 ★</h1>
+    <div class="subtitle">为国家安全，探索无法解释之事</div>
   </div>
 
   <div class="marquee-bar">
@@ -69,9 +69,16 @@
       return name.replace(/·/g, "").slice(-1);
     }
 
+    function avatarHtml(p) {
+      if (p.photo) {
+        return '<img src="' + p.photo + '" alt="' + p.name + '">';
+      }
+      return initials(p.name);
+    }
+
     const cards = PERSONNEL.map(p =>
       '<div class="personnel-card" id="' + p.id + '">' +
-        '<div class="avatar">' + initials(p.name) + '</div>' +
+        '<div class="avatar">' + avatarHtml(p) + '</div>' +
         '<div class="personnel-name"><a href="staff.html?id=' + encodeURIComponent(p.id) + '">' + p.name + '</a></div>' +
         '<div class="personnel-position">' + p.position + '</div>' +
         '<span class="personnel-status status-' + p.status + '">' + p.status + '</span>' +

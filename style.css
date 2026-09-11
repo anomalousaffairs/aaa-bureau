@@ -196,7 +196,9 @@ a.blink {
   50% { opacity: 0; }
 }
 
-/* ===== 公众留言板 ===== */
+/* ===== 公众留言板 =====
+   已移入 .content 列内部，因此背景改为和内容区一致的白底+灰边框，
+   不再使用 sidebar 专用的灰色背景，视觉上与搜索框、案件列表等区块统一 */
 
 .guestbook {
   margin-top: 15px;
@@ -350,7 +352,8 @@ a.blink {
 .status-机密   { background: #000; color: #0f0; }
 .status-进行中 { background: #fff3c0; color: #805500; }
 
-/* ===== 人事名录 ===== */
+/* ===== 人事名录 =====
+   状态类名对应 data.js 里实际使用的状态字符串：在职 / 离职 / 退役 / 遗失 / 不明 */
 .personnel-section-title {
   background: #000080;
   color: #ffff00;
@@ -386,6 +389,12 @@ a.blink {
   font-size: 24px;
   color: #000080;
   font-weight: bold;
+  overflow: hidden;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .personnel-name {
   font-weight: bold;
@@ -408,7 +417,7 @@ a.blink {
 .status-遗失 { background: #000;   color: #f00; }
 .status-不明 { background: #fff4cc; color: #865e00; }
 
-/* ===== 登录状态条 ===== */
+/* ===== 登录状态条（横幅右上角） ===== */
 .auth-status {
   position: absolute;
   top: 10px;
@@ -521,7 +530,7 @@ a.blink {
   text-decoration: underline;
 }
 
-/* ===== 员工档案页面 ===== */
+/* ===== 员工档案页面（staff.html） ===== */
 .staff-profile {
   max-width: 420px;
   margin: 10px auto;
@@ -542,6 +551,12 @@ a.blink {
   font-size: 40px;
   color: #000080;
   font-weight: bold;
+  overflow: hidden;
+}
+.staff-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .staff-name {
   font-size: 19px;

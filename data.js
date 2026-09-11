@@ -1,3 +1,6 @@
+// ===== 站内数据（案件档案 & 人事名录）=====
+// 后续扩展剧情线索时，直接在这两个数组里增删条目即可
+
 const CASES = [
   { id: "c-1965-08-03", year: 1965, code: "A650803O2", title: "俄亥俄州谷仓异常燃烧事件", status: "已结案" },
   { id: "c-1971-01-19", year: 1971, code: "A710119F4", title: "雾松镇集体失忆事件", status: "已结案" },
@@ -12,6 +15,10 @@ const CASES = [
   { id: "c-1976-11-03", year: 1976, code: "A761103V9", title: "怀俄明州废弃观测站事件", status: "机密" },
 ];
 
+// 如需给某人添加头像照片，在对应条目里加一个 photo 字段，
+// 值填图片相对路径（例如放在 photos/ 文件夹下就写 "photos/文件名.jpg"）。
+// 没有 photo 字段的人会继续显示原来的字母头像，不影响其他人。
+// 示例：{ id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职", photo: "photos/pf-4187.jpg" }
 const PERSONNEL = [
 { id: "PF-4187", name: "埃利斯·卡特", position: "局长", status: "在职" },
 { id: "PF-0632", name: "玛格丽特·陈", position: "副局长", status: "在职" },
@@ -34,7 +41,7 @@ const PERSONNEL = [
 { id: "PF-0648", name: "艾琳·沃克", position: "异常物证管理员", status: "退役" }
 ];
 
-// ===== 模糊搜索 =====
+// ===== 模糊搜索（跨案件档案与人事名录）=====
 function normalize(s) {
   return String(s).toLowerCase().trim();
 }
